@@ -119,4 +119,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # VARIABLES QUE INTEGRAN LOS REDIRECTS DE AUTH
 LOGIN_REDIRECT_URL = 'index-page'
+<<<<<<< HEAD
 LOGOUT_REDIRECT_URL = 'index-page'
+=======
+LOGOUT_REDIRECT_URL = 'index-page'
+
+LOGIN_URL = 'login'
+LOGOUT_URL = 'exit'
+>>>>>>> 5e03a3cc133e80fd231124345780da1d287b7343

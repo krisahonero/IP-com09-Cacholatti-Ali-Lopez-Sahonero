@@ -32,10 +32,15 @@
                     {% endif %}
                     <li class="nav-item">
                         {% if request.user.is_authenticated %}
+<<<<<<< HEAD
                         <a class="nav-link" href="{% url 'exit' %}">Salir</a> {% else %}
                         <!-- Se cambió href="#" por href="{% url 'exit' %}" -->
                         <a class="nav-link" href="{% url 'login' %}">Iniciar sesión</a> {% endif %}
                         <!-- Se cambió href="#" por href="{% url 'login' %}" -->
+=======
+                        <a class="nav-link" href="{% url 'index-page' %}">Salir</a> {% else %}
+                        <a class="nav-link" href="{% url 'login' %}">Iniciar sesión</a> {% endif %}
+>>>>>>> 5e03a3cc133e80fd231124345780da1d287b7343
                     </li>
                 </ul>
 
