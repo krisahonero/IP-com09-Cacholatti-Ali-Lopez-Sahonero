@@ -5,6 +5,8 @@ from django.shortcuts import redirect, render
 from .layers.services import services_nasa_image_gallery
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
+from django.contrib.auth.views import LogoutView
+from .models import Favourite
 
 # función que invoca al template del índice de la aplicación.
 def index_page(request):
@@ -49,18 +51,32 @@ def login(request):
 # las siguientes funciones se utilizan para implementar la sección de favoritos: traer los favoritos de un usuario, guardarlos, eliminarlos y desloguearse de la app.
 @login_required
 def getAllFavouritesByUser(request):
-    favourite_list = []
+    favourite_list = Favourite.objects.filter(user=request.user)
     return render(request, 'favourites.html', {'favourite_list': favourite_list})
-
 
 @login_required
 def saveFavourite(request):
-    pass
-
+    if request.method == 'POST':
+        image_url = request.POST.get('image_url')
+        title = request.POST.get('title')
+        description = request.POST.get('description')
+        date = request.POST.get('date')
+        Favourite.objects.create(
+            user=request.user,
+            image_url=image_url,
+            title=title,
+            description=description,
+            date=date
+        )
+    return redirect('favoritos')
 
 @login_required
 def deleteFavourite(request):
-    pass
+    if request.method == 'POST':
+        fav_id = request.POST.get('id')
+        favourite = Favourite.objects.get(id=fav_id, user=request.user)
+        favourite.delete()
+    return redirect('favoritos')
 
 # Para que funcione el botón SALIR
 @login_required
@@ -69,8 +85,4 @@ def exit(request):
     return redirect('index-page') # Y lo reenviamos a la página de INICIO
 
 
-#agregamos la funcion login 
-@login_required
-def my_login(request):
-    pass
 
