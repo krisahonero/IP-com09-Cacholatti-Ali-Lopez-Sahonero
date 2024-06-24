@@ -40,6 +40,17 @@ def search(request):
         return(home(request)) 
 
     # si el usuario no ingresó texto alguno, debe refrescar la página; caso contrario, debe filtrar aquellas imágenes que posean el texto de búsqueda.
+<<<<<<< HEAD
+###################################################################
+###################################################################
+# función que invoca al template del login de la aplicación. Agregada porque no estaba
+def login(request):
+    return render(request, 'registration/login.html')
+##################################################################
+##################################################################
+
+# las siguientes funciones se utilizan para implementar la sección de favoritos: traer los favoritos de un usuario, guardarlos, eliminarlos y desloguearse de la app.
+=======
 
 
 
@@ -67,6 +78,7 @@ def search(request):
 #     pass
 
 
+>>>>>>> 5e03a3cc133e80fd231124345780da1d287b7343
 @login_required
 def getAllFavouritesByUser(request):
     favourite_list = Favourite.objects.filter(user=request.user)
@@ -96,8 +108,19 @@ def deleteFavourite(request):
         favourite.delete()
     return redirect('favoritos')
 
+<<<<<<< HEAD
+# Para que funcione el botón SALIR
+@login_required
+def exit(request):
+    logout(request) 
+    return redirect('index-page') # Y lo reenviamos a la página de INICIO
+
+
+
+=======
 
 @login_required
 def exit(request):
     logout(request)
     return redirect('exit')
+>>>>>>> 5e03a3cc133e80fd231124345780da1d287b7343
