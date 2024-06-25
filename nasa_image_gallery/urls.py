@@ -14,6 +14,6 @@ urlpatterns = [
     path('favourites/add/', views.saveFavourite, name='agregar-favorito'),
     path('favourites/delete/', views.deleteFavourite, name='borrar-favorito'),
 
-    path('exit/', LogoutView.as_view(next_page='index-page'), name='exit'),
+    path('exit/', views.exit, name='exit'),
 ]
 #                        log out view

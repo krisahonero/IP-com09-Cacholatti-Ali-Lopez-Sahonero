@@ -44,27 +44,6 @@ def search(request):
 
 
 # las siguientes funciones se utilizan para implementar la sección de favoritos: traer los favoritos de un usuario, guardarlos, eliminarlos y desloguearse de la app.
-# @login_required
-# def getAllFavouritesByUser(request):
-#     favourite_list = []
-#     return render(request, 'favourites.html', {'favourite_list': favourite_list})
-
-
-# @login_required
-# def saveFavourite(request):
-#     getAllFavouritesByUser = []
-#     if getAllFavouritesByUser
-#     pass
-
-
-# @login_required
-# def deleteFavourite(request):
-#     pass
-
-
-# @login_required
-# def exit(request):
-#     pass
 
 
 @login_required
@@ -100,4 +79,4 @@ def deleteFavourite(request):
 @login_required
 def exit(request):
     logout(request)
-    return redirect('exit')
+    return redirect('index-page')
